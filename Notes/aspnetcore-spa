@@ -1,0 +1,23 @@
+Run VS Code as Administrator
+
+Check node and npm versions
+
+> node -v
+>> npm cache clean -f
+>> npm install -g n
+> npm install -g npm@latest
+
+> npm i -g generator-aspnetcore-spa
+> yo aspnetcore-spa
+
+Name the application using Camel Case
+
+> dotnet build
+> dotnet run
+
+Check the Console in the browser's developer tools to see if [HMR] connected message is displayed.
+If you decide to run your application by executing dotnet run you may notice that HMR is not be
+enabled, this is because you are not passing “Development” as the environment variable. If you
+want to run the application in Development mode, execute the following command:
+
+> dotnet run — environment=”Development”
