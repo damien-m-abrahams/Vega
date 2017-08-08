@@ -1,0 +1,126 @@
+To install packages:
+
+> dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+> dotnet restore
+
+Entity Framework
+
+> dotnet ef migrations add InitialModel
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.15
+System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.EntityFrameworkCore.Design, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+File name: 'Microsoft.EntityFrameworkCore.Design, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHos
+tBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPriv
+HostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks, IntPtr ptrLoadContextBinder)
+   at System.Reflection.Assembly.Load(AssemblyName assemblyRef)
+   at Microsoft.EntityFrameworkCore.Tools.ReflectionOperationExecutor..ctor(String assembly, String startupAssembly, String projectDir, String contentRootPath, String dataDirectory, Stri
+ng rootNamespace, String environment)
+   at Microsoft.EntityFrameworkCore.Tools.Commands.ProjectCommandBase.CreateExecutor()
+   at Microsoft.EntityFrameworkCore.Tools.Commands.MigrationsAddCommand.Execute()
+   at Microsoft.DotNet.Cli.CommandLine.CommandLineApplication.Execute(String[] args)
+   at Microsoft.EntityFrameworkCore.Tools.Program.Main(String[] args)
+Could not load file or assembly 'Microsoft.EntityFrameworkCore.Design, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+
+> dotnet add package Npgsql.EntityFrameworkCore.PostgeSQL.Design
+
+Microsoft (R) Build Engine version 15.1.1012.6693
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Writing C:\Users\damien\AppData\Local\Temp\tmpC70F.tmp
+info : Adding PackageReference for package 'Npgsql.EntityFrameworkCore.PostgreSQL.Design' into project 'C:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj'.
+log  : Restoring packages for C:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj...
+info :   GET https://insightsoftware.myget.org/F/dev/api/v2/FindPackagesById()?id='Npgsql.EntityFrameworkCore.PostgreSQL.Design'
+info :   GET https://api.nuget.org/v3-flatcontainer/npgsql.entityframeworkcore.postgresql.design/index.json
+info :   GET https://insightsoftware.myget.org/F/kepler/api/v3/flatcontainer/npgsql.entityframeworkcore.postgresql.design/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/npgsql.entityframeworkcore.postgresql.design/index.json 1943ms
+info :   GET https://api.nuget.org/v3-flatcontainer/npgsql.entityframeworkcore.postgresql.design/1.1.1/npgsql.entityframeworkcore.postgresql.design.1.1.1.nupkg
+info :   NotFound https://insightsoftware.myget.org/F/kepler/api/v3/flatcontainer/npgsql.entityframeworkcore.postgresql.design/index.json 2113ms
+info :   OK https://insightsoftware.myget.org/F/dev/api/v2/FindPackagesById()?id='Npgsql.EntityFrameworkCore.PostgreSQL.Design' 2387ms
+info :   OK https://api.nuget.org/v3-flatcontainer/npgsql.entityframeworkcore.postgresql.design/1.1.1/npgsql.entityframeworkcore.postgresql.design.1.1.1.nupkg 757ms
+log  : Installing Npgsql.EntityFrameworkCore.PostgreSQL.Design 1.1.1.
+info : Package 'Npgsql.EntityFrameworkCore.PostgreSQL.Design' is compatible with all the specified frameworks in project 'C:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj'.
+info : PackageReference for package 'Npgsql.EntityFrameworkCore.PostgreSQL.Design' version '1.1.1' added to file 'C:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj'.
+
+> dotnet restore
+
+Restoring packages for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj...
+  Restoring packages for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj...
+  Restoring packages for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj...
+  Restoring packages for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj...
+  Restore completed in 1.14 sec for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj.
+  Restore completed in 1.14 sec for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj.
+  Restore completed in 1.14 sec for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj.
+  Generating MSBuild file c:\Users\damien\Documents\GitHub\Sandbox\cars\obj\Cars.csproj.nuget.g.props.
+  Writing lock file to disk. Path: c:\Users\damien\Documents\GitHub\Sandbox\cars\obj\project.assets.json
+  Restore completed in 1.54 sec for c:\Users\damien\Documents\GitHub\Sandbox\cars\Cars.csproj.
+  
+  NuGet Config files used:
+      C:\Users\damien\AppData\Roaming\NuGet\NuGet.Config
+      C:\Program Files (x86)\NuGet\Config\Microsoft.VisualStudio.Offline.config
+  
+  Feeds used:
+      https://insightsoftware.myget.org/F/dev/api/v2
+      https://api.nuget.org/v3/index.json
+      https://insightsoftware.myget.org/F/kepler/api/v3/index.json
+      C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+Done: 0.
+
+>dotnet ef migrations add InitialModel
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.96
+Done. To undo this action, use 'ef migrations remove'
+
+>dotnet ef migrations remove <-- To remove the last migration that has NOT been applied to the database (see output of previous command)
+
+>dotnet ef database update
+
+To downgrade to a previous migration call
+
+>dotnet ef database update InitialModel <-- migration name (see previous command)
+>dotnet ef database update 0 <-- to remove first migration
+
+>dotnet ef migrations add ApplyDataAnnotations
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.40
+An operation was scaffolded that may result in the loss of data. Please review the migration for accuracy.
+Done. To undo this action, use 'ef migrations remove'
+
+Create an empty migration and add insert statements with default data
+
+>dotnet ef migrations add SeedDatabase
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.24
+Done. To undo this action, use 'ef migrations remove'
+
+>dotnet ef database update
+
+Add a controller to handle API calls and then run (with a watch to watch for source file changes)
+
+>dotnet watch run
+
+May need '>npm install' if module aspnet-webpack is missing
+May need '>webpack --config webpack.config.vendor.js >webpack' if wwwroot\dist folder is missing
+
+>dotnet add package AutoMapper
+
+>dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 1.2.0
+
+>dotnet restore

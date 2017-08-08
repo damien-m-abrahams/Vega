@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using cars.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace WebApplicationBasic
 {
@@ -28,6 +31,12 @@ namespace WebApplicationBasic
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
+
+            // Alternatively use the Secret Manager
+            var connectionString = Configuration["ConnectionStrings:Default"]; // or Configuration.GetConnectionString("Default")
+            services.AddDbContext<CarsDbContext>(options => options.UseNpgsql(connectionString));
+
             // Add framework services.
             services.AddMvc();
         }
